@@ -7,7 +7,7 @@ Sklep ma na celu ukazać moje umiejętności w zakresie:
 
  - JavaScript
  - React.js
- - Sass
+ - Scss
  - TypeScript
  - Babel & Webpack
  - Podstaw projektowania grafiki komputerowej
@@ -19,7 +19,7 @@ The store aims to show my skills in the field of:
 
  - JavaScript
  - React.js
- - Sass
+ - Scss
  - TypeScript
  - Babel & Webpack
  - Basics of computer graphics design
