@@ -1,0 +1,326 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Redressed&display=swap');
+
+// base colors
+$gold: #d2a773;
+$dark_blue: #00182e;
+$bg: #161616;
+
+html, body {
+    margin: 0; 
+    height: 100%; 
+    overflow: hidden;
+    font-family: 'Bebas Neue', cursive;
+    cursor: none;
+
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.transition-circle {
+    position: fixed;
+    top: -10px;
+    left: -10px;
+    transform: translate(-10px, -10px);
+    z-index: 100;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 50%;
+    transition: 1.4s ease;
+}
+
+.transition-text {
+    position: fixed;
+    top: 52%;
+    left: 50%;
+    transform: translate(-50%, -48%);
+    font-size: 16px;
+    color: #fff;
+    z-index: 4;
+    opacity: 0;
+    transition: 1.2s ease;
+}
+
+.transition-box {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 50%;
+    left: -100vw;
+    background-color: $gold;
+    transform: translate(-100vw, -50%);
+}
+
+#container {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    margin: 0;
+    background-color: $bg;
+}
+
+.logo{
+    position: fixed;
+    top: 0px;
+    left: 50%;
+    z-index: 4;
+    width: 300px;
+    height: auto;
+    transform: translate(-50%, -100px);
+    animation: logo-anim 0.6s ease ;
+}
+
+.logo img{
+    width: 100%;
+    height: auto;
+    transition: 1.2s ease;
+}
+
+.product-bg {
+    width: 50vh;
+    height: 50vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    background-color: $bg;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    pointer-events: none;
+    padding: 0.3rem;
+
+    border-style: dashed;
+    border-radius: 0px;
+    border-color: #fff;
+    border-width: 0px;
+    box-shadow: 0px 0px 30px 10px #fff;
+    animation: bg-anim 0.8s ease 0.3s forwards, flicker 4s linear 2.3s infinite;
+}
+
+.product {
+    position: fixed;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.product img {
+    height: 90vh;
+    width: auto;
+    transform: rotateZ(10deg) scale(0.8);
+    animation: product-anim 0.8s ease;
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+}
+
+.hover-this {
+    transition: all 0.3s ease;
+    opacity: 0;
+    animation: fade-in-left 0.8s ease 0.5s forwards;
+}
+
+span {
+    display: inline-block;
+    font-weight: 300;
+    color: #fff;
+    font-size: 36px;
+    text-transform: uppercase;
+    pointer-events: none;
+    transition: transform 0.1s linear;
+}
+
+.cursor {
+    top: -10px;
+    left: -10px;
+    transform: translate(-10px, -10px);
+    pointer-events: none;
+    position: fixed;
+    padding: 0.3rem;
+    background-color: #fff;
+    border-radius: 50%;
+    mix-blend-mode: difference;
+    transition: transform 0.3s ease;
+}
+
+.hover-this:hover ~ .cursor {
+    transform: translate(-50%, -50%) scale(8);
+}
+
+
+// media
+
+@media(min-width: 900px) {
+    nav {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+@media(max-width: 900px) {
+    nav {
+        top: 30%;
+    }
+
+    .hover-this {
+        width: 100%;
+        padding: 20px 0;
+        display: inline-block;
+    }
+}
+
+
+// animations
+
+@keyframes fade-in-left {
+    0% {
+        opacity: 0;
+        transform: translate(-15px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fade-out {
+    0% {
+        opacity: 1;
+        margin-top: 0;
+        visibility: visible;
+    }
+
+    99% {
+        opacity: 0;
+        margin-top: 100px;
+        visibility: visible;
+    }
+
+    100% {
+        opacity: 0;
+        margin-top: 100px;
+        visibility: hidden;
+    }
+}
+
+@keyframes product-anim {
+    0% {
+        transform: translate(0, 60px) rotateZ(0deg) scale(0.65);
+    }
+
+    100% {
+        transform: translate(0, 0) rotateZ(10deg) scale(0.8);
+    }
+}
+
+@keyframes flicker { // an animation for background light
+    0% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    3% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    6% {
+        box-shadow: 0px 0px 30px 10px rgb(29, 29, 29);
+    }
+    7% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    8% {
+        box-shadow: 0px 0px 30px 10px rgb(29, 29, 29);
+    }
+    9% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    10% {
+        box-shadow: 0px 0px 30px 10px rgb(29, 29, 29);
+    }
+    11% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    20% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    21% {
+        box-shadow: 0px 0px 30px 10px rgb(29, 29, 29);
+      }
+    22% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    23% {
+        box-shadow: 0px 0px 30px 10px rgb(29, 29, 29);
+    }
+    24% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    50% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    99% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+    100% {
+        box-shadow: 0px 0px 30px 10px #fff;
+    }
+} 
+
+@keyframes bg-anim {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -54%);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes logo-anim {
+    0% {
+        opacity: 0;
+        letter-spacing: 0px;
+        transform: translate(-50%, -75px);
+    }
+
+    100% {
+        opacity: 1;
+        letter-spacing: 10px;
+        transform: translate(-50%, -100px);
+    }
+}
+
+@keyframes logo-transition {
+    0% {
+        top: 0px;
+        left: 50%;
+        transform: translate(-50%, -100px);
+    }
+
+    100% {
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes box-transition {
+    0% {
+        transform: translate(0vw, -50%);
+    }
+
+    100% {
+        transform: translate(200vw, -50%);
+    }
+}

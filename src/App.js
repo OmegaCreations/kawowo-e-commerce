@@ -1,9 +1,10 @@
 import React from 'react';
+import { Menu } from './Menu';
 
-export function App() {
-    return (
-        <div>
-            <h1> Hello World </h1>
-        </div>
-    );
-}
+export class App extends React.Component {
+    render() {
+        return (
+            <Menu />
+        );
+    }
+};

@@ -10,10 +10,15 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                exclude: /nude_modules/,
+                exclude: /node_modules/,
                 use: {
                     loader: 'babel-loader',
                 },
+            },
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
             },
             {
                 test: /\.scss$/,
@@ -23,7 +28,11 @@ module.exports = {
                     'css-loader',
                     'sass-loader',
                 ],
-            }
+            },
+            {
+                test: /\.(png|svg|jpg|jpeg|gif)$/i,
+                type: 'asset/resource',
+            },
         ]
     },
     plugins: [new MiniCssExtractPlugin()],
