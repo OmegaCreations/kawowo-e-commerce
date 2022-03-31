@@ -3,8 +3,6 @@ require('file-loader?name=[name].[ext]!./index.html')
 import React from 'react'
 import * as ReactDOMClient from 'react-dom/client'
 import { App } from './App'
-import './styles/Menu.scss'
-
 
 // scripts
 

@@ -6,6 +6,7 @@ module.exports = {
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
     },
+    entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
     module: {
         rules: [
             {

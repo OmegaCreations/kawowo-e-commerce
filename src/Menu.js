@@ -1,11 +1,27 @@
 import React from 'react'
 import productImg from './assets/img/product.png'
-import logoImg from './assets/img/logo.png'
+import Nav from './nav'
+import './styles/menu.scss'
 
+
+var reload = false
 export class Menu extends React.Component {
 
     constructor(props) {
         super(props)
+    }
+
+    componentDidMount () {
+        if (reload) {
+            reload = false
+            // reloading page to re render 
+            // and prevent animation continuing after changing page back
+            window.location.reload(true);
+        }
+    }
+
+    componentWillUnmount () {
+        reload = true
     }
 
     render() {
@@ -16,16 +32,7 @@ export class Menu extends React.Component {
                 <div className="transition-box"></div>
                 <div className="transition-text"><p>Drink. Focus. Relax.</p></div>
                 <div className="nav-wrapper">
-                    <nav>
-                        <div className="logo"><img src={ logoImg } alt="kawowo icon" /></div>
-                        {/* Menu */}
-                        <a href="#" className="hover-this"><span>Home</span></a>
-                        <a href="#" className="hover-this"><span>Products</span></a>
-                        <a href="#" className="hover-this"><span>Contact</span></a>
-                        <a href="#" className="hover-this"><span>About us</span></a>
-                        {/* Custom cursor */}
-                        <div className="cursor"></div>
-                    </nav>
+                    <Nav/>
                 </div>
                 <div className="product-row">
                     <div className="info"></div>

@@ -49,7 +49,7 @@ $(function(){
                                             .css('top', `-${d}px`)
                                             .css('left', `-${d}px`)
                     setTimeout(() => {
-                         //redirect page <------- to change react route
+                        
                     }, 800)
                 }, 2000)
             }, 800)
