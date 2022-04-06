@@ -27,8 +27,8 @@ export default function Nav () {
         <nav>
             <div className="logo"><img src={ logoImg } alt="kawowo icon" /></div>
             {/* Menu */}
-            <Link onClick={navigateProducts} to="/Products" className="hover-this"><span>Products</span></Link>
-            <Link onClick={navigateAbout} to="/About us" className="hover-this"><span>About us</span></Link>
+            <Link onClick={navigateProducts} to="/Products" className="hover-this"><span className="move">Products</span></Link>
+            <Link onClick={navigateAbout} to="/About us" className="hover-this"><span className="move">About us</span></Link>
             {/* Custom cursor */}
             <div className="cursor"></div>
         </nav>

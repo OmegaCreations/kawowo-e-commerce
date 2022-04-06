@@ -8,7 +8,6 @@ $bg: #161616;
 html, body {
     margin: 0; 
     height: 100%; 
-    overflow: hidden;
     font-family: 'Bebas Neue', cursive;
     cursor: none;
 
@@ -151,12 +150,12 @@ span {
     border-radius: 50%;
     mix-blend-mode: difference;
     transition: transform 0.3s ease;
+    z-index: 9999;
 }
 
 .hover-this:hover ~ .cursor {
     transform: translate(-50%, -50%) scale(8);
 }
-
 
 // media
 
@@ -186,6 +185,30 @@ span {
     0% {
         opacity: 0;
         transform: translate(-15px, 0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fade-in-top {
+    0% {
+        opacity: 0;
+        transform: translate(0, -15px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes fade-in-bottom {
+    0% {
+        opacity: 0;
+        transform: translate(0, 15px);
     }
 
     100% {

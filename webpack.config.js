@@ -1,10 +1,12 @@
 const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     output: { // where files will be bundled to
         path: path.join(__dirname, '/dist'),
         filename: 'index.bundle.js',
+        publicPath: '/'
     },
     entry: ["regenerator-runtime/runtime.js", "./src/index.js"],
     module: {
@@ -34,7 +36,23 @@ module.exports = {
                 test: /\.(png|svg|jpg|jpeg|gif)$/i,
                 type: 'asset/resource',
             },
+            {
+                test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+                use: [
+                   'file-loader'
+                ]
+            },
         ]
     },
-    plugins: [new MiniCssExtractPlugin()],
+    devServer: {
+        historyApiFallback: true,
+    },
+    plugins: [
+        new MiniCssExtractPlugin(),
+        new CopyWebpackPlugin({ 
+            patterns: [ 
+             { from: './src/assets/img/icon.png' },
+            ]
+         })
+    ],
 };

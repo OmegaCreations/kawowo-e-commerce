@@ -2,6 +2,7 @@ import React from 'react'
 import productImg from './assets/img/product.png'
 import Nav from './nav'
 import './styles/menu.scss'
+import './styles/products.scss'
 
 
 var reload = false
